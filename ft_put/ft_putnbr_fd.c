@@ -6,7 +6,7 @@
 /*   By: gsilva <gsilva@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/14 12:04:55 by gsilva            #+#    #+#             */
-/*   Updated: 2022/12/06 16:25:13 by gsilva           ###   ########.fr       */
+/*   Updated: 2022/12/06 17:07:04 by gsilva           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ int	ft_putnbr_fd(int nbr, int fd)
 
 	i = 0;
 	n = nbr;
-	if (n < 0 && i++)
+	if (n < 0)
 	{
-		ft_putchar_fd('-', fd);
+		i += ft_putchar_fd('-', fd);
 		n = -n;
 	}
 	if (n / 10 > 0)
 		i += ft_putnbr_fd((n / 10), fd);
-	ft_putchar_fd((n % 10) + 48, fd);
-	return (i++);
+	i += ft_putchar_fd((n % 10) + 48, fd);
+	return (i);
 }
